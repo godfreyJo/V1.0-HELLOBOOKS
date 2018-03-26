@@ -1,0 +1,98 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Sign Up
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+    <link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+	<link rel="stylesheet" href="{{url_for('.static', filename = 'min.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename = 'main.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Limelight" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('.static', filename = 'animate.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Limelight" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Hello Books</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class=""><a href="#">Home</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('signup') }}">Books</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+<br>
+<br>
+<br>
+  <div class="wrapper">
+<div class="main-page" >
+            <div class="headings">
+                <h1>Registration form</h1>
+            </div>
+                              
+            <form class="register-form">
+                
+                <div class="form-group row">
+                    
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="First name">
+                  </div>
+                    
+                </div>
+                
+                <div class="form-group row">
+                    
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Last name">
+                  </div>
+                    
+                </div>
+                
+                <div class="form-group row">
+                    
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="User name">
+                  </div>
+                    
+                </div>
+                
+                <div class="form-group row">
+                    
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" placeholder="Email">
+                  </div>
+                    
+                </div>
+                <div class="form-group row">
+                    
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" placeholder="password">
+                  </div>
+                    
+                </div>
+                
+                <div class="form-group row">
+                  <div class="offset-sm-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">register</button>
+                  </div>
+                </div>
+            
+        </div>
+        
+        
+    </div> <!-- /container -->
+{% endblock %}

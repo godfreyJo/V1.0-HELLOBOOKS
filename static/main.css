@@ -1,0 +1,232 @@
+/** body layout **/
+body{
+	width: auto;
+	margin: 0 3% 0 3%;
+	padding: 0 !important;
+	position: relative;
+	background: #43C6AC;
+	background: -webkit-linear-gradient(to right, #94716b, #b79891);
+	background: linear-gradient(to right, #94716b, #b79891)
+}
+/** home page styling**/
+.main-container{
+	width: 98%;
+	margin:2%;
+	padding: 0;
+	height: 85vh;
+	position: absolute;
+}
+/**navigation styling**/
+.navbar{
+	padding-top: 1%;
+	background-color: #6dd5ed;
+	box-shadow: 0px 10px 3px #283e51;
+}
+.navbar-brand{
+	font-family: 'Amiri', serif;
+	font-family: 'Bangers', cursive;
+	font-family: 'Alex Brush', cursive;
+	font-size: 40px;
+}
+.navbar-form {
+	width: 49%;
+	display: inline-flex;
+	right: 0;
+	position: absolute;
+}
+.nav-item{
+	list-style-type:none;
+	display:inline-block;
+}
+.nav-item a{
+	padding:8px;
+}
+.nav-link{
+	position: absolute;
+	right:3%;
+}
+.login-input{
+	margin:5px;
+	height:0.5%;
+}
+.login-btn{
+	margin:5px;
+	height:0.3%;
+}
+.btn-link{
+	color:white;
+}
+/** form styling**/
+.form{
+	width:50%;
+	float: right;
+}
+.form-group{
+	color: black;
+	padding: 1% 15% 1% 15%;
+	opacity: 1.5;
+	font-size: 12px;
+	border-radius: 25px;
+}
+.text-header{
+	font-family: 'Amiri', serif;
+font-family: 'Bangers', cursive;
+font-family: 'Alex Brush', cursive;
+font-size: 50px;
+}
+.text-container{
+	font-family: 'Amiri', serif;
+	font-family: 'Bangers', cursive;
+	width:50%;
+	padding: 3% 10% 0 10%;
+}
+
+/** footer styling**/
+.footer{
+	color:#143B33;
+	opacity:0.5;
+	padding: 3% 0 3% 0  ;
+	bottom: 10px;
+	left: 50px;
+	width:30%;
+	margin-top: 50%;
+	float:right;
+}
+
+/*card styling*/
+
+.card-container{
+	margin-top: 1%;
+	margin: 2.5%;
+}
+.select-btn {
+	position: absolute;
+	right:0;
+	margin-right:2.5%;
+}
+.main-card{
+	display:inline-flex;
+	width:100%;
+	margin-top: 1.5%;
+}
+.header-link{
+	color: black;
+}
+.card-title{
+		font-family: 'Playball', cursive;
+}
+.card-div{
+	width:32%;
+	margin:0.8%;
+	height:35vh;
+	border-radius:25px;
+	padding:0.8%;
+	text-align: center;
+	box-shadow:0px 10px 2px #1B2F1C;
+	font-size:15px;
+
+}
+a {
+    color: #f3f4f5;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+ul, menu, dir {
+	color:#6dd5ed;
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+img {
+    border-radius: 1em;
+    box-shadow: 1px 2px 5px, white;
+    width:9.5em
+    margin-left: auto;
+	margin-right: auto;
+    border: 1px solid #777;
+	display: block;
+}
+.bookimageinhome {
+    border-radius: 1em;
+    box-shadow: 1px 2px 5px, white;
+    width: 9.5em;
+}
+.col-sm-{
+    padding: 0 1.1em;
+	text-align: center;
+}
+#h2 {
+    margin: 0;
+    padding: 0 0 20px;
+    color: #efed40;
+    text-align: center;
+    font-family: roboto;
+}
+.div {
+    display: block;
+}
+
+.form-log {
+    position: relative;
+    z-index: 1;
+    background: rgba(0,0,0,.5);
+    max-width: 450px;
+    margin: 0 auto 100px;
+    padding: 55px 30px;
+    padding-bottom: 0;
+    height: 22rem;
+    border-radius: 0.5em;
+    border: 0.3em;
+}
+.margin-bottom {
+margin-bottom:15px;}
+
+.input-group-addon {
+   color: #fff;
+   background-color: #337ab7;
+}
+
+
+.form-control, .input-group-addon {
+   border-radius: 0px;
+}
+label{
+  text-align: left !important;
+}
+body {
+	margin: 0;
+}
+
+/*
+#over img {
+	margin-left: auto;
+	margin-right: auto;
+    border: 1px solid #777;
+	display: block;
+}
+*/
+.gal-container{
+    max-width: 1200px;
+    margin: auto;
+    background: #f2f2f2;
+    overflow: auto;
+}
+.gallery{
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 390px;
+}
+.gallery-img{
+    width: 100%;
+    height: auto;
+}
+.desc{
+    padding: 15px;
+    text-align: center;
+}
