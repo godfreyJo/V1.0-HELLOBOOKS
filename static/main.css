@@ -219,7 +219,7 @@ body {
 .gallery{
     margin: 5px;
     border: 1px solid #ccc;
-    float: left;
+/*    float: left;*/
     width: 390px;
 }
 .gallery-img{
