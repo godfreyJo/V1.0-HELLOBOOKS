@@ -1,5 +1,8 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
+from data import Books
+
+Books = Books()
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -27,6 +30,14 @@ def profile():
 @app.route('/admin')
 def admin():
     return render_template('admin-area.html')
+
+@app.route('/books')
+def books():
+    return render_template('books.html', books = Books)
+
+@app.route('/books/<string:id>/')
+def book(id):
+    return render_template('books.html', id=id)
 
 
 if __name__ == '__main__':

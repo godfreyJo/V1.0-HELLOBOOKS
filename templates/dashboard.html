@@ -6,7 +6,12 @@ Dashboard
 
 {% block styles %}
 {{super()}}
-<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+	<link rel="stylesheet" href="{{url_for('.static', filename = 'min.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename = 'main.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Limelight" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('.static', filename = 'animate.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Limelight" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
