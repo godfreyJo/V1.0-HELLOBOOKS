@@ -16,13 +16,17 @@ def login():
 def signup():
     return render_template('signup.html')
 
-@app.route('/dashboard')
-def dashboard():
-    return render_template('dashboard.html')
-
 @app.route('/profile')
-def profile():
+def dashboard():
     return render_template('profile.html')
+
+@app.route('/adm-login')
+def profile():
+    return render_template('admin-login.html')
+
+@app.route('/admin')
+def admin():
+    return render_template('admin-area.html')
 
 
 if __name__ == '__main__':
