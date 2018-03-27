@@ -1,4 +1,4 @@
-from app import app
+from . import app
 import unittest
 import os
 
@@ -11,7 +11,6 @@ class TestConfig(unittest.TestCase):
         tester = app.test_client(self)
         response = tester.get('/index', content_type='html/test')
         self.asserEqual(respose.status_code, 200)
-# 
-
+#      
     if __name__ == '__main__':
         unittest.main()
