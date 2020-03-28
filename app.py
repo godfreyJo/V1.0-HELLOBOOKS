@@ -18,18 +18,18 @@ class UserView(FlaskView):
     
 #Function for viewing  all the users
     @app.route('/users', methods=['GET'])
-    def allusers():
+    def allusers(self, user):
         return jsonify({'users': users})
     
 #Function for username in the list of all usernames   
     @app.route('/users/<string:name>', methods=['GET'])
-    def Usersearch(name):
+    def Usersearch(self, name):
         Usearch = [user for user in users if user['Username']== name]
         return jsonify({'user': Usearch[0]})
 
  #This function below adds a new user inform of dictionary into the existing dictionary   
     @app.route('/users', methods=['POST'])
-    def adduser():
+    def adduser(self, users):
         user = {'Username': request.json['Username'],
            'password': request.json['password']}
         users.append(user)
@@ -37,7 +37,7 @@ class UserView(FlaskView):
  
  #this function updates the existing username dictionary 
     @app.route('/users/<string:name>', methods=['PUT'])
-    def UserEdit(name):
+    def UserEdit(self, username):
         Usearch = [user for user in users if user['Username']== name]
         Usearch [0]['name'] = request.json['Username']
         return jsonify({'user': Usearch[0]})
@@ -52,7 +52,7 @@ class BooksView(FlaskView):
 
 
     @app.route('/books', methods=['GET'])
-    def allbooks():
+    def allbooks(self):
         return jsonify({'books': books})
 
     
