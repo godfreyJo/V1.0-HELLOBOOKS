@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, url_for
+from flask import Flask, jsonify, request, url_for, render_template
 from flask_classy import FlaskView, route
 
 
@@ -18,8 +18,9 @@ class UserView(FlaskView):
     
 #Function for viewing  all the users
     @app.route('/users', methods=['GET'])
-    def allusers(self, user):
-        return jsonify({'users': users})
+    def allusers():
+        return render_template("profile.html");
+        # return jsonify({'users': users})
     
 #Function for username in the list of all usernames   
     @app.route('/users/<string:name>', methods=['GET'])
