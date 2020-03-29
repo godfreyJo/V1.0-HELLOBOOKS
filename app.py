@@ -1,11 +1,29 @@
 from flask import Flask, jsonify, request, url_for, render_template, redirect
-from forms import RegistrationForm, LoginForm
-from flask_classy import FlaskView, route
+# from forms import RegistrationForm, LoginForm
+# from flask_classy import FlaskView, route
 
 
 app = Flask(__name__)
 
-books = [{'Title': 'Microeconomics'}, {'Title':'Primary English'}, {'Title':'Primary Maths'}]
+books = [
+    {'title': 'Microeconomics',
+    'author': 'Corey Schafer',
+    'content': 'First post content',
+    'date_posted': 'April 20, 2018'
+
+    }, 
+    {
+        'title':'Primary English',
+        'author': 'Greg Norman',
+        'content': 'Basic English...',
+        'date_posted': 'May 20, 2019'}, 
+
+    {
+        'title':'Primary Maths',
+        'author': 'Robina Hera',
+        'content': 'First post content',
+        'date_posted': 'April 20, 2018'}
+    ]
 # users = [{'Username': 'John','password':'password'},
 #         {'Username': 'Joel','password':'password'},
 #         {'Username': 'Joan','password':'password'},
@@ -21,9 +39,19 @@ books = [{'Title': 'Microeconomics'}, {'Title':'Primary English'}, {'Title':'Pri
 @app.route('/')
 @app.route("/home")
 def home():
-    return render_template('home.html', books = books)
+    return render_template('index.html', books = books)
 
+@app.route("/about")
+def about():
+    return render_template('index.html', books = books)
 
+@app.route("/login")
+def login():
+    return render_template('index.html', books = books)
+
+@app.route("/register")
+def register():
+    return render_template('index.html', books = books)
 # @app.route('/users', methods=['GET'])
 # def allusers():
 #     return render_template("user.html");

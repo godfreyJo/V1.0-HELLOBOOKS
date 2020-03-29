@@ -5,9 +5,11 @@
       <div class="media-body">
         <div class="article-metadata">
           <a href="#" class="mr-2">{{ book.author }}</a>
-          <small class="text-muted">{{ post.date_posted}}</small>
+          <small class="text-muted">{{ book.date_posted }}</small>
         </div>
-        <h2 class="article-title " href="#">{{pos</h2>
+        <h2 class="article-title" href="#">{{ book.title }}</h2>
+          <p class="article-content">{{ book.content }}</p>        
       </div>
-
     </article>
+  {% endfor %}
+{% endblock %}
