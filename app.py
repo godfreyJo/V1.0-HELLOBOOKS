@@ -43,7 +43,7 @@ def home():
 
 @app.route("/about")
 def about():
-    return render_template('index.html', books = books)
+    return render_template('about.html', books = books)
 
 @app.route("/login")
 def login():
