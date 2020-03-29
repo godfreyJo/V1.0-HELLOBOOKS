@@ -1,97 +1,13 @@
-{% load static %}
-{% extends "template/base.html" %}
-
-{% block title %}
-Hello Books App
-{% endblock %}
-
-{% block styles %}
-{{super()}}
-<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
-	<link rel="stylesheet" href="{{url_for('.static', filename = 'min.css')}}">
-    <link rel="stylesheet" href="{{url_for('.static', filename = 'main.css')}}">
-    <link href="https://fonts.googleapis.com/css?family=Limelight" rel="stylesheet">
-    <link rel="stylesheet" href="{{url_for('.static', filename = 'animate.css')}}">
-    <link href="https://fonts.googleapis.com/css?family=Limelight" rel="stylesheet">
-{% endblock %}
-
+{% extends "base.html" %}
 {% block content %}
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Hello Books</a>
+  {% for book in books %}
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a href="#" class="mr-2">{{ book.author }}</a>
+          <small class="text-muted">{{ post.date_posted}}</small>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class=""><a href="#">Home</a></li>
-            <li><a href="{{ url_for('login') }}">Login</a></li>
-            <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+        <h2 class="article-title " href="#">{{pos</h2>
       </div>
-    </nav>
-<br>
 
-    <div class="container">
-
-       <div class="text-container">
-            <h4 class="animated jello text-header"> World of Books </h4>
-           <div id="" style="position:absolute; width:100%; height:100%">
-               </div>
-               
-                 <div class="container">
-            <div class="gallery">
-                <img src="..\static\InACorridor.jpeg" >
-                <div class ="desc"> Add a description</div>
-                     </div>
-             <div class="gallery">
-                <img src="..\static\InACorridor.jpeg" >
-                <div class ="desc"> Add a description</div>
-                     </div>
-              <div class="gallery">
-                <img src="..\static\InACorridor.jpeg" >
-                <div class ="desc"> Add a description</div>
-                     </div>
-              <div class="gallery">
-                <img src="..\static\InACorridor.jpeg" >
-                <div class ="desc"> Add a description</div>
-                     </div>
-               <div class="gallery">
-                <img src="..\static\InACorridor.jpeg" >
-                <div class ="desc"> Add a description</div>
-                     </div>
-                <div class="gallery">
-                <img src="..\static\InACorridor.jpeg" >
-                <div class ="desc"> Add a description</div>
-                     </div>     
- 
-<!--
-              <img src="..\static\InACorridor.jpeg" class="rounded img-thumbnail" alt="vitabu">
-        
-              <img src="..\static\InACorridor.jpeg" class="rounded img-thumbnail" alt="vitabu">
-           
-              <img src="..\static\InACorridor.jpeg" class="rounded img-thumbnail" alt="vitabu">
-           
-              <img src="..\static\InACorridor.jpeg" class="rounded img-thumbnail" alt="vitabu">
-           
-              <img src="..\static\InACorridor.jpeg" class="rounded img-thumbnail" alt="vitabu">
-          
-              <img src="..\static\InACorridor.jpeg" class="rounded img-thumbnail" alt="vitabu">
-               </div>
--->
-               
-           </div>
-              
-      
-
-       
-
-    </div>
-</div><!-- /.container -->
-{% endblock %}
+    </article>
