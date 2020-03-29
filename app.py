@@ -19,7 +19,7 @@ class UserView(FlaskView):
 #Function for viewing  all the users
     @app.route('/users', methods=['GET'])
     def allusers():
-        return render_template("profile.html");
+        return render_template("user.html");
         # return jsonify({'users': users})
     
 #Function for username in the list of all usernames   
