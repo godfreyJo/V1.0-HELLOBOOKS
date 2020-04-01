@@ -1,5 +1,7 @@
-from flask import Flask, jsonify, request, url_for, render_template, redirect
-# from forms import RegistrationForm, LoginForm
+from flask import Flask, jsonify, request, url_for, render_template, redirect, flash
+from PIL import Image
+import secrets
+from forms import RegistrationForm, LoginForm, U
 # from flask_classy import FlaskView, route
 
 
@@ -39,6 +41,7 @@ books = [
 @app.route('/')
 @app.route("/home")
 def home():
+    books = Book.query.all()
     return render_template('index.html', books = books)
 
 @app.route("/about")
