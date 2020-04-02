@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request, url_for, render_template, redirect, flash
 from PIL import Image
 import secrets
-from forms import RegistrationForm, LoginForm, U
+from forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm
+from models import User, Book
+from flask_login import login_user, current_user, logout_user, login_required
 # from flask_classy import FlaskView, route
 
 
