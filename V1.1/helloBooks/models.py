@@ -23,10 +23,10 @@ class User(db.Model, UserMixin):
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), unique=True, nullable=False)
-    bookOwner = db.Column(db.String(20), unique=True, nullable=False)
+    # bookOwner = db.Column(db.String(20), unique=True, nullable=False)
     # author = db.Column(db.String(20), unique=True, nullable=False)
-    bookPicture = db.Column(db.String(20), nullable=False, default='default.jpg')
-    date_posted = db.Column(db.DateTime, unique=True, nullable=False, default=datetime.utcnow)
+    # bookPicture = db.Column(db.String(20), nullable=False, default='default.jpg')
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 

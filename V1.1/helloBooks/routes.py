@@ -97,16 +97,13 @@ def profile():
 @login_required
 def new_book():    
     form = BookForm()
-    if form.validate_on_submit():
-        if form.bookPicture.data:
-            book_Picture = save_picture(form.bookPicture.data)
-            current_user.book_Picture =book_Picture                   
-        book = Book(title=form.title.data, content=form.content.data, bookOwner=current_user)      
+    if form.validate_on_submit():                            
+        book = Book(title=form.title.data, content=form.content.data)      
         db.session.add(book)  
         db.session.commit()
         flash('Your book has been posted', 'success')
         return redirect(url_for('home'))
-    return render_template('create_book.html', title='new Book', form=form)
+    return render_template('create_book.html', title='new Book', form=form, legend='New Book')
     
 
 
