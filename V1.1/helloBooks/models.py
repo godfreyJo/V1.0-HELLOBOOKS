@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(120), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60),  nullable=False)
-    books = db.relationship('Book', backref='bookowner', lazy=True)
+    books = db.relationship('Book', backref='author', lazy=True)
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}', '{self.image_file}')"
@@ -24,7 +24,7 @@ class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), unique=True, nullable=False)
     bookOwner = db.Column(db.String(20), unique=True, nullable=False)
-    author = db.Column(db.String(20), unique=True, nullable=False)
+    # author = db.Column(db.String(20), unique=True, nullable=False)
     bookPicture = db.Column(db.String(20), nullable=False, default='default.jpg')
     date_posted = db.Column(db.DateTime, unique=True, nullable=False, default=datetime.utcnow)
     content = db.Column(db.Text, nullable=False)
