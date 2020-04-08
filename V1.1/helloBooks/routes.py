@@ -3,35 +3,9 @@ import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request
 from helloBooks import app, db, bcrypt
-from helloBooks.forms import RegistrationForm, LoginForm, UpdateProfileForm
+from helloBooks.forms import RegistrationForm, LoginForm, UpdateProfileForm, BookForm
 from helloBooks.models import User, Book
 from flask_login import login_user, current_user, logout_user, login_required
-
-
-
-books = [
-    {
-        'title': 'Microeconomics',
-        'bookowner': 'Wenger B',
-        'author': 'Corey Schafer',
-        'content': 'First post content',
-        'date_posted': 'April 20, 2018'
-
-    },
-    {
-        'title':'Primary English',
-        'bookowner': 'Wenger B',
-        'author': 'Greg Norman',
-        'content': 'Basic English...',
-        'date_posted': 'May 20, 2019'},
-
-    {
-        'title':'Primary Maths',
-        'bookowner': 'Wenger B',
-        'author': 'Robina Hera',
-        'content': 'First post content',
-        'date_posted': 'April 20, 2018'}
-    ]
 
 
 
@@ -40,6 +14,7 @@ books = [
 @app.route("/")
 @app.route("/home")
 def home():
+    books = Book.query.all()
     return render_template('home.html', books=books)
 
 
@@ -109,7 +84,7 @@ def profile():
         current_user.username = form.username.data
         current_user.email = form.email.data
         db.session.commit()
-        flash('Your account has been updats', 'success')
+        flash('Your account has been updated', 'success')
         return redirect(url_for('profile'))
     elif request.method == 'GET':
         form.username.data = current_user.username
@@ -117,4 +92,54 @@ def profile():
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template('profile.html', title='Profile', image_file=image_file, form=form)
     
+
+@app.route("/book/new", methods=['GET', 'POST'])
+@login_required
+def new_book():    
+    form = BookForm()
+    if form.validate_on_submit():
+        if form.bookPicture.data:
+            book_Picture = save_picture(form.bookPicture.data)
+            current_user.book_Picture =book_Picture                   
+        book = Book(title=form.title.data, content=form.content.data, bookOwner=current_user)      
+        db.session.add(book)  
+        db.session.commit()
+        flash('Your book has been posted', 'success')
+        return redirect(url_for('home'))
+    return render_template('create_book.html', title='new Book', form=form)
     
+
+
+
+
+
+
+    # books = [
+    # {
+    #     'title': 'Microeconomics',
+    #     'bookowner': 'Wenger B',
+    #     'bookPicture': 'default.jpg',
+    #     'author': 'Corey Schafer',
+    #     'content': 'First post content',
+    #     'date_posted': 'April 20, 2018'
+
+    # },
+    # {
+    #     'title':'Primary English',
+    #     'bookowner': 'Wenger B',
+    #     'bookPicture': 'default.jpg',
+    #     'author': 'Greg Norman',
+    #     'content': 'Basic English...',
+    #     'date_posted': 'May 20, 2019'},
+
+    # {
+    #     'title':'Primary Maths',
+    #     'bookowner': 'Wenger B',
+    #     'bookPicture': 'default.jpg',
+    #     'author': 'Robina Hera',
+    #     'content': 'First post content',
+    #     'date_posted': 'April 20, 2018'}
+    # ]
+
+
+

@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from helloBooks.models import User
 
@@ -38,7 +38,7 @@ class LoginForm(FlaskForm):
 class UpdateProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)] )
     email = StringField('Email', validators=[DataRequired(), Email() ])
-    picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpb', 'png'])])
+    picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png'])])
     submit = SubmitField('Update')
 
     def validate_username(self, username):
@@ -55,3 +55,8 @@ class UpdateProfileForm(FlaskForm):
                 raise ValidationError('That email is taken. Please choose another one!')
 
     
+class BookForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
+    content = TextAreaField('Content', validators=[DataRequired()])
+    bookPicture = FileField('Book Picture', validators=[FileAllowed(['jpg', 'png'])])
+    submit = SubmitField('Post')
