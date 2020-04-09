@@ -1,5 +1,6 @@
 {% extends "base.html" %}
   {% block content %}
+    <h1 class="mb-3">Books by {{ user.username }} ({{ books.total }})</h1>
     {% for book in books.items %}
         <article class="media content-section">
           <img src="{{ url_for('static', filename='profile_pics/' + book.author.image_file)}}" alt="" class="rounded-circle article-img">
@@ -16,9 +17,9 @@
   {% for page_num in books.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
       {% if page_num %}
         {% if books.page == page_num %}
-          <a href="{{ url_for('home', page=page_num) }}" class="btn btn-info mb-4">{{page_num }}</a>
+          <a href="{{ url_for('user_books', username=user.username, page=page_num) }}" class="btn btn-info mb-4">{{page_num }}</a>
         {% else %}
-        <a href="{{ url_for('home', page=page_num) }}" class="btn btn-outline-info mb-4">{{page_num }}</a>
+        <a href="{{ url_for('user_books',username=user.username, page=page_num) }}" class="btn btn-outline-info mb-4">{{page_num }}</a>
         {% endif %}
         
       {% else %}
