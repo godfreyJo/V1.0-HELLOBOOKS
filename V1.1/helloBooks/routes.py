@@ -98,7 +98,7 @@ def profile():
 def new_book():    
     form = BookForm()
     if form.validate_on_submit():                            
-        book = Book(title=form.title.data, content=form.content.data)      
+        book = Book(title=form.title.data, content=form.content.data, author=current_user)      
         db.session.add(book)  
         db.session.commit()
         flash('Your book has been posted', 'success')
