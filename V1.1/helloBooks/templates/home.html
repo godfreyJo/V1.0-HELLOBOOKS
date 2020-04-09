@@ -2,12 +2,13 @@
   {% block content %}
     {% for book in books %}
         <article class="media content-section">
+          <img src="{{ url_for('static', filename='profile_pics/' + book.author.image_file)}}" alt="" class="rounded-circle article-img">
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ book.author.username }}</a>
-              <small class="text-muted">{{ book.date_posted }}</small>
+              <small class="text-muted">{{ book.date_posted.strftime('%Y-%m-%d') }}</small>
             </div>
-            <h2><a class="article-title" href="#">{{ book.title }}</a></h2>
+            <h2><a class="article-title" href="{{ url_for('book', book_id=book.id) }}">{{ book.title }}</a></h2>
             <p class="article-content">{{ book.content }}</p>
           </div>
       </article>

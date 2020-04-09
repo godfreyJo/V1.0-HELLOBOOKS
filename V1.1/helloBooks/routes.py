@@ -1,7 +1,7 @@
 import os
 import secrets
 from PIL import Image
-from flask import render_template, url_for, flash, redirect, request
+from flask import render_template, url_for, flash, redirect, request, abort
 from helloBooks import app, db, bcrypt
 from helloBooks.forms import RegistrationForm, LoginForm, UpdateProfileForm, BookForm
 from helloBooks.models import User, Book
@@ -105,6 +105,46 @@ def new_book():
         return redirect(url_for('home'))
     return render_template('create_book.html', title='new Book', form=form, legend='New Book')
     
+@app.route("/book/<int:book_id>")
+def book(book_id):
+    book = Book.query.get_or_404(book_id)
+    return render_template('book.html', title=book.title, book=book)
+
+
+@app.route("/book/<int:book_id>/update", methods=['GET', 'POST'])
+@login_required
+def update_book(book_id):
+    book = Book.query.get_or_404(book_id)
+    if book.author != current_user:
+        abort(403)
+    form = BookForm()
+    if form.validate_on_submit():
+        book.title = form.title.data
+        book.content = form.content.data
+        db.session.commit()
+        flash('Your book details has been updated!', 'success')
+        return redirect(url_for('book', book_id=book.id))
+    elif request.method == 'GET':
+        form.title.data = book.title
+        form.content.data = book.content
+    return render_template('create_book.html', title='Update Book', form=form, legend='Update Book')
+
+
+@app.route("/book/<int:book_id>/delete", methods=['POST'])
+@login_required
+def delete_book(book_id):
+    book = Book.query.get_or_404(book_id)
+    if book.author != current_user:
+        abort(403)
+    db.session.delete(book)
+    db.session.commit()
+    flash('Your book has been deleted!', 'success')
+    return redirect(url_for('home'))
+
+
+
+
+
 
 
 
