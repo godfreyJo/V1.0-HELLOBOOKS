@@ -1,23 +1,23 @@
 body {
-  background: #fafafa;
-  color: #333333;
+  background: #f5d1d1;
+  color: #9c8787;
   margin-top: 5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #444444;
+  color: #9c8787;
 }
 
 .bg-steel {
-  background-color: #305be9;
+  background-color: #461818;
 }
 
 .site-header .navbar-nav .nav-link {
-  color: #cbd5db;
+  color: #b1a9a9;
 }
 
 .site-header .navbar-nav .nav-link:hover {
-  color: #ffffff;
+  color: #b1a9a9;
 }
 
 .site-header .navbar-nav .nav-link.active {
@@ -25,9 +25,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .content-section {
-  background: #ffffff;
+  background: #eec3c3;
   padding: 10px 20px;
-  border: 1px solid #dddddd;
+  border: 1px solid #b1a9a9;
   border-radius: 3px;
   margin-bottom: 20px;
 }
@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a.article-title:hover {
-  color: #305be9;
+  color: #ecc4a2;
   text-decoration: none;
 }
 
@@ -54,7 +54,7 @@ a.article-title:hover {
 .article-metadata {
   padding-bottom: 1px;
   margin-bottom: 4px;
-  border-bottom: 1px solid #e3e3e3
+  border-bottom: 1px solid #ecc4a2
 }
 
 .article-metadata a:hover {
